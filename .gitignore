@@ -1,0 +1,6 @@
+.vscode
+.DS_Store
+**/.DS_Store
+.cache/
+__pycache__/
+**/__pycache__/
