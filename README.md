@@ -3,20 +3,12 @@
     <img src="assets/logo.png" alt="Logo" width="32" style="vertical-align: middle; margin-right: 5px;" />
     BrainHiVE: Learning Brain Representation with Hierarchical Visual Embeddings (ICLR 2026)
   </h1>
-  <br><br>
-    <a href="https://arxiv.org/abs/">
-        <img alt="paper link" src="https://img.shields.io/badge/arXiv-2507.06448-b31b1b.svg" />
-    </a>
-    <a href="https://github.com/ssshamiii/Brain-HIVE">
-        <img alt="data link" src="https://img.shields.io/badge/💻%20GitHub-Code-green" />
-    </a>
-    <a href="">
-        <img alt="GitHub Stars" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Models-yellow" />
-    </a>
-	  <a href="">
-        <img alt="GitHub Stars" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Data-yellow" />
-    </a>
+    <a href="https://arxiv.org/abs/"><img alt="paper link" src="https://img.shields.io/badge/arXiv-2507.06448-b31b1b.svg" /></a>
+  <a href="https://github.com/ssshamiii/Brain-HIVE"><img alt="code link" src="https://img.shields.io/badge/💻%20GitHub-Code-green" /></a>
+  <a href="https://huggingface.co/"><img alt="HF Models" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Models-yellow" /></a>
+  <a href="https://huggingface.co/"><img alt="HF Data" src="https://img.shields.io/badge/🤗%20Hugging%20Face-Data-yellow" /></a>
 </div>
+
 
 ## 🔥 News
 
