@@ -118,10 +118,5 @@ bash eval/example.sh
 If you find our project is helpful, please cite our paper as
 
 ```
-@article{miao2025response,
-  title={Response attack: Exploiting contextual priming to jailbreak large language models},
-  author={Miao, Ziqi and Li, Lijun and Xiong, Yuan and Liu, Zhenhua and Zhu, Pengyu and Shao, Jing},
-  journal={arXiv preprint arXiv:2507.05248},
-  year={2025}
-}
+
 ```
