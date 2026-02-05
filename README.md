@@ -1,12 +1,12 @@
 <div align="center">
   <h1>
-    <img src="assets/logo.png" alt="Logo" width="40" style="vertical-align: middle; margin-right: 5px;" />
+    <img src="assets/logo.png" alt="Logo" width="32" style="vertical-align: middle; margin-right: 5px;" />
     BrainHiVE: Learning Brain Representation with Hierarchical Visual Embeddings (ICLR 2026)
   </h1>
 </div>
 
-<div align="center">
 
+<div align="center">
 [![arXiv](https://img.shields.io/badge/arXiv-2507.06448-b31b1b.svg)](https://arxiv.org/abs/2507.06448)
 [![GitHub](https://img.shields.io/badge/💻%20GitHub-Code-green)](https://github.com/ssshamiii/Brain-HIVE)
 [![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Models-yellow)](https://huggingface.co/collections/PAPOGalaxy/papo-qwen-686d92dd3d43b1ce698f851a)
