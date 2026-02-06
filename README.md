@@ -118,5 +118,12 @@ bash eval/example.sh
 If you find our project is helpful, please cite our paper as
 
 ```
-
+@inproceedings{
+anonymous2026learning,
+title={Learning Brain Representation with Hierachical Visual Embeddings},
+author={Anonymous},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=IEq71qS8B7}
+}
 ```
