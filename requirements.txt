@@ -1,0 +1,11 @@
+torch>=2.9.1+cu130
+torchvision>=0.24.1
+transformers>=4.57.2
+diffusers>=0.36.0
+datasets>=4.4.1
+open_clip_torch
+omegaconf
+pathlib2
+accelerate>=1.12.0
+tqdm
+timm>=1.0.22
