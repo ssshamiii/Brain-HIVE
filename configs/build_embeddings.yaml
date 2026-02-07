@@ -1,0 +1,22 @@
+# configs/build_embeddings.yaml
+
+dataset_name: ${oc.env:DATASET_NAME,things}
+image_directory: ${oc.env:IMAGE_DIR}          
+split: ${oc.env:SPLIT,train}
+
+pretrained_model_name_or_path: ${oc.env:MODEL_PATH}  
+output_dir: ${oc.env:OUTPUT_DIR}                      
+
+# Only used for VAE / pixel-like encoders
+resolution: ${oc.env:RESOLUTION,128}
+
+# fixed knobs
+batch_size: ${oc.env:BATCH_SIZE,1000}
+seed: 42
+dataloader_num_workers: 8
+cache_dir: .cache
+max_rows_per_file: 200000
+
+# chunking
+rows_per_flush: 20000
+dtype: float32

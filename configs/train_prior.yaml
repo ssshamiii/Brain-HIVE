@@ -1,0 +1,46 @@
+# Logging, seed, config and checkpointing
+output_dir: ${output_dir}
+cache_dir: .cache
+report_to: swanlab
+seed: 42
+checkpointing_steps: 5000
+save_total_limit: 2
+upcast_before_saving: true
+resume_from_checkpoint: null
+
+# model parameters
+proj_meta: ${proj_meta}
+embed_dim: 1024
+
+ip_adapter_name_or_path: null # TODO
+diffusion_model_name_or_path: null # TODO
+eval_diffusion_model_name_or_path: null # TODO
+# Data loading
+dataset_name: imagenet-1k
+image_directory: null # TODO
+embedding_directory: null # TODO
+eval_dataset_name: things
+eval_image_directory: null # TODO
+eval_embedding_directory: null # TODO
+eval_split: test
+resolution: 512
+
+# Training
+learning_rate: 1e-4
+adam_weight_decay: 0.01
+adam_beta1: 0.9
+adam_beta2: 0.999
+num_train_epochs: 1
+per_device_train_batch_size: 16
+dataloader_num_workers: 8
+
+lr_warmup_steps: 0
+lr_scheduler: constant
+max_grad_norm: 1.0
+
+per_device_eval_batch_size: 8
+max_eval_samples: null
+validation_steps: 2000
+# max_steps: 21
+
+do_eval: true

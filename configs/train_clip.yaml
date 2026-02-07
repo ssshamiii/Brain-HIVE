@@ -1,0 +1,83 @@
+# Model Arguments
+
+# --- common ---
+hidden_size: 1024
+logit_scale_init_value: 2.6592
+dropout: 0.1
+
+# --- brain ---
+brain_backbone: brain_mlp
+brain_channels: 17
+brain_sequence_length: 250
+brain_embedding_dim: 1440
+
+# --- vision ---
+proj_meta: ${proj_meta}
+
+
+# Data Arguments
+
+embedding_directory: null
+data_directory: null
+time_slice: [0, 250]
+subject_ids: [1,]
+eval_subject_ids: [1, ]
+
+brain_key: eeg
+avg_trials: true
+selected_channels: null
+
+cache_dir: .cache
+
+max_train_samples: null
+max_eval_samples: null
+
+# Training Arguments
+seed: 42
+run_name: clip-O+P-H14,B32,VAE
+output_dir: null # TODO
+resume_from_checkpoint: null
+
+do_train: true
+do_eval: true
+do_predict: true
+
+per_device_train_batch_size: 1024
+per_device_eval_batch_size: 200
+
+learning_rate: 5e-4
+weight_decay: 0.05
+adam_beta1: 0.9
+adam_beta2: 0.995
+max_grad_norm: 1.0
+num_train_epochs: 25
+max_steps: -1
+lr_scheduler_type: cosine
+warmup_steps: 0
+
+dataloader_num_workers: 8
+dataloader_pin_memory: false
+remove_unused_columns: false
+
+logging_steps: 50
+eval_steps: 0
+save_steps: 0
+save_strategy: epoch
+eval_strategy: epoch
+save_total_limit: 1
+
+use_cpu: false
+bf16: true
+fp16: false
+tf32: false
+# ddp_backend: nccl
+
+report_to: [swanlab] # [swanlab] # none
+load_best_model_at_end: false
+metric_for_best_model: top1_acc
+greater_is_better: true
+eval_do_concat_batches: true
+
+accelerator_config: null
+label_names: []
+# include_for_metrics: [inputs]

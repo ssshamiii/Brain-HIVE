@@ -1,0 +1,22 @@
+# Logging, seed, config and checkpointing
+output_dir: ${output_dir}
+cache_dir: .cache
+seed: ${seed}
+
+# model parameters
+
+brain_model_name_or_path: ${brain_model_name_or_path}
+diffusion_model_name_or_path: null # TODO
+prior_model_name_or_path: ${prior_model_name_or_path}
+# Data loading
+data_directory: null # TODO
+image_directory: null # TODO
+eval_subject_ids: ${eval_subject_ids}
+brain_key: ${brain_key}
+selected_channels: ${selected_channels}
+resolution: 512
+time_slice: ${time_slice}
+
+num_repeats: 10
+dataloader_num_workers: 8
+save_output: true
