@@ -34,7 +34,7 @@ for eval_subj in "${ALL_SUBJECTS[@]}"; do
     seed=$((BASE_SEED + rep - 1))
     rep_tag="$(printf "rep-%02d" "${rep}")"
 
-    run_name="RN50+CLIP-ViT-B-32-laion2B-s34B-b79K+vae/inter/heldout-${eval_subj}/train-[${train_csv}]/${rep_tag}"
+    run_name="synclr_vit_b_16+CLIP-ViT-B-32-laion2B-s34B-b79K+vae/inter/heldout-${eval_subj}/train-[${train_csv}]/${rep_tag}"
     output_dir="${BASE_DIR}/exp-${BRAIN_KEY}/${run_name}"
     TMP_FILE="configs/train_clip.resolved.inter.heldout-${eval_subj}.${rep_tag}.yaml"
 
