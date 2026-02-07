@@ -10,7 +10,95 @@ For reconstruction, we use a pretrained Fusion Prior that maps the fused token i
 
 # Get Started
 
+This repo provides three main stages:
 
+1) **Build visual embeddings**
+2) **Train brain↔vision contrastive model**
+3) **Train fusion prior and build reconstruction**
+
+## 0. Environment
+
+```bash
+git clone git@github.com:ssshamiii/Brain-HIVE.git
+cd Brain-HIVE-main
+
+conda create -n brainhive python=3.10 -y
+conda activate brainhive
+
+pip install -r requirements.txt
+```
+
+## 1. Prepare data & pretrained weights
+
+### Datasets
+
+The scripts assume the following layout:
+
+```text
+<BASE_DIR>/
+  data/
+    things-eeg/
+      Preprocessed_data_250Hz_whiten/   # EEG/MEG numpy / mat files
+      ...                               # THINGS images live under this folder
+      embeddings/                       # output from build_embeddings
+    visual-layer/
+      imagenet-1k-vl-enriched/
+        data/                           # ImageNet images
+        embeddings/                     # output from build_embeddings
+```
+
+### Pretrained diffusion (SDXL) + IP-Adapter weights
+
+Fusion Prior training requires:
+
+- **SDXL base** (HuggingFace ID or local directory): `stabilityai/stable-diffusion-xl-base-1.0`
+- **SDXL IP-Adapter weights**: a single `*.safetensors` file (path is set in `scripts/train_prior.sh`)
+
+We recommend storing them under:
+
+```text
+<BASE_DIR>/pretrained/
+  ip-adapter_sdxl.safetensors
+  priors/              # output of train_prior.sh
+```
+
+### Visual encoders
+
+`build_embeddings.sh` can run multiple pretrained vision encoders (CLIP, DINOv2, VAE, RN50, SynCLR). By default it looks under:
+
+```text
+<BASE_DIR>/pretrained/<model_name_or_path>
+```
+
+If you prefer to load from HuggingFace directly, set `MODEL_PATH` in `scripts/build_embeddings.sh` to the HF IDs instead of local files.
+
+## 2. Build visual embeddings
+
+```bash
+bash scripts/build_embeddings.sh
+```
+
+## 3. Train brain↔vision contrastive model
+
+```bash
+# Intra-subject
+bash scripts/train_clip_intra.sh
+
+# Inter-subject
+bash scripts/train_clip_inter.sh
+```
+
+## 4. Train fusion prior and build reconstruction
+
+```bash
+bash scripts/train_prior.sh
+```
+
+Reconstruction uses a trained Fusion Prior.
+
+```bash
+bash scripts/build_reconstruction.sh
+```
 
 # Citation
 
