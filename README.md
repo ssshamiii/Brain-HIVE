@@ -18,7 +18,7 @@ If you find our project is helpful, please cite our paper as
 
 ```
 @inproceedings{
-anonymous2026learning,
+zheng2026learning,
 title={Learning Brain Representation with Hierarchical Visual Embeddings},
 author={Jiawen Zheng and Haonan Jia and Ming Li and Yuhui Zheng and Yufeng Zeng and Yang Gao and Chen Liang},
 booktitle={The Fourteenth International Conference on Learning Representations},
