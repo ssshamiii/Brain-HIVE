@@ -94,6 +94,8 @@ bash scripts/train_clip_inter.sh
 bash scripts/train_prior.sh
 ```
 
+> **Note:** You can also directly use a pretrained Fusion Prior from Hugging Face: https://huggingface.co/fakekungfu/Fusion-Prior-H14_B32_VAE
+
 Reconstruction uses a trained Fusion Prior.
 
 ```bash
