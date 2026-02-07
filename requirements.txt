@@ -10,3 +10,4 @@ accelerate>=1.12.0
 tqdm
 timm>=1.0.22
 swanlab
+scikit-image
