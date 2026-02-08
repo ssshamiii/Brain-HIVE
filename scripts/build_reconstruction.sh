@@ -85,3 +85,18 @@ for subj in "${SUBJECT_IDS[@]}"; do
   rm -rf "${TMP_FILE}"
 
 done
+
+
+SUMMARY_JSON="${EXP_ROOT}/reconstruction_summary.json"
+SUMMARY_CSV="${EXP_ROOT}/reconstruction_summary.csv"
+
+echo "=== [AGG] Aggregating eval_results.json under: ${EXP_ROOT}"
+python3 build_average.py \
+  --exp_root "${EXP_ROOT}" \
+  --filename "eval_results.json" \
+  --out_json "${SUMMARY_JSON}" \
+  --out_csv "${SUMMARY_CSV}"
+
+echo "=== [AGG] Saved:"
+echo "  - ${SUMMARY_JSON}"
+echo "  - ${SUMMARY_CSV}"

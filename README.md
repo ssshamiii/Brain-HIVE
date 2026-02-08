@@ -22,7 +22,7 @@ This repo provides three main stages:
 git clone git@github.com:ssshamiii/Brain-HIVE.git
 cd Brain-HIVE-main
 
-conda create -n brainhive python=3.10 -y
+conda create -n brainhive python=3.13 -y
 conda activate brainhive
 
 pip install -r requirements.txt
