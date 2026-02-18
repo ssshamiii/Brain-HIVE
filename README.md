@@ -46,7 +46,10 @@ The scripts assume the following layout:
         data/                           # ImageNet images
         embeddings/                     # output from build_embeddings
 ```
-
+Download data:
+  - EEG: [things-eeg](https://huggingface.co/datasets/Haitao999/things-eeg)
+  - MEG: [things-meg](https://huggingface.co/datasets/Haitao999/things-eeg-meg)
+  - ImageNet: [imagenet-1k-vl-enriched](https://huggingface.co/datasets/visual-layer/imagenet-1k-vl-enriched)
 ### Pretrained diffusion (SDXL) + IP-Adapter weights
 
 Fusion Prior training requires:
