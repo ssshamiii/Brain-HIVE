@@ -11,3 +11,4 @@ tqdm
 timm>=1.0.22
 swanlab
 scikit-image
+einops
