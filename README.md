@@ -56,7 +56,7 @@ Data sources:
 Fusion Prior training requires:
 
 - **SDXL base** (HuggingFace ID or local directory): `stabilityai/stable-diffusion-xl-base-1.0`
-- **SDXL IP-Adapter weights**: a single `*.safetensors` file (path is set in `scripts/train_prior.sh`)
+- **SDXL IP-Adapter weights**: a single `*.safetensors` file: `h94/IP-Adapter/sdxl_models/ip-adapter_sdxl_vit-h.safetensors`  (path is set in `scripts/train_prior.sh`)
 
 We recommend storing them under:
 
