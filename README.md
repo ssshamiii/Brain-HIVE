@@ -26,6 +26,7 @@ conda create -n brainhive python=3.13 -y
 conda activate brainhive
 
 pip install -r requirements.txt
+pip install git+https://github.com/openai/CLIP.git
 ```
 
 ## 1. Prepare data & pretrained weights
