@@ -1,4 +1,4 @@
-# BrainHiVE: [Learning Brain Representation with Hierarchical Visual Embeddings](https://openreview.net/forum?id=IEq71qS8B7)
+# BrainHiVE: Learning Brain Representation with Hierarchical Visual Embeddings
 
 BrainHIVE is a brain–vision decoding project for brain-to-image retrieval and reconstruction.
 
