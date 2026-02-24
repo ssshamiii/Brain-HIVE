@@ -7,6 +7,8 @@ We align EEG/MEG embeddings to a single fused visual token built from multiple p
 For reconstruction, we use a pretrained Fusion Prior that maps the fused token into a frozen diffusion backbone (text-free), making generation stable and reusable across different brain encoders under the same fusion-based training scheme.
 #  News
 
+ICLR Paper Link: https://openreview.net/forum?id=IEq71qS8B7
+Arxiv Link: https://www.arxiv.org/abs/2602.07495
 
 # Get Started
 
