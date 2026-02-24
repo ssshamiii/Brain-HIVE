@@ -8,6 +8,7 @@ For reconstruction, we use a pretrained Fusion Prior that maps the fused token i
 #  News
 
 ICLR Paper Link: https://openreview.net/forum?id=IEq71qS8B7
+
 Arxiv Link: https://www.arxiv.org/abs/2602.07495
 
 # Get Started
