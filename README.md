@@ -85,6 +85,8 @@ If you prefer to load from HuggingFace directly, set `MODEL_PATH` in `scripts/bu
 bash scripts/build_embeddings.sh
 ```
 
+We also provide cached visual embeddings on Hugging Face: https://huggingface.co/datasets/fakekungfu/Brain-HIVE_Visual_Embeddings
+
 ## 3. Train brain↔vision contrastive model
 
 ```bash
