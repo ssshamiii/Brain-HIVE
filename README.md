@@ -7,9 +7,8 @@ We align EEG/MEG embeddings to a single fused visual token built from multiple p
 For reconstruction, we use a pretrained Fusion Prior that maps the fused token into a frozen diffusion backbone (text-free), making generation stable and reusable across different brain encoders under the same fusion-based training scheme.
 #  News
 
-Openreview Paper Link: https://openreview.net/forum?id=IEq71qS8B7
-
-Arxiv Paper Link: https://www.arxiv.org/abs/2602.07495
+The pre-cached visual embeddings are now available on Hugging Face:
+https://huggingface.co/datasets/fakekungfu/Brain-HIVE_Visual_Embeddings
 
 # Get Started
 
