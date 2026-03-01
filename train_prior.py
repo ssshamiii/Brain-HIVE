@@ -209,7 +209,7 @@ def log_validation(
 def main():
     args = parse_args()
 
-    accelerator_project_config = ProjectConfiguration(project_dir=args.output_dir)
+    accelerator_project_config = ProjectConfiguration(project_dir=args.output_dir, logging_dir=args.run_name)
     accelerator = Accelerator(
         log_with=args.report_to,
         project_config=accelerator_project_config,
