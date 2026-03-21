@@ -29,7 +29,11 @@ from diffusers.models.autoencoders.autoencoder_kl import AutoencoderKL
 from diffusers.models.unets.unet_2d_condition import UNet2DConditionModel
 from diffusers import StableDiffusionXLPipeline
 
-from main.models_adapter import IPAttnAdapterModel, IPProjectionModel, FusionEncoderModel
+from main.models_adapter import (
+    IPAttnAdapterModel,
+    IPProjectionModel,
+    FusionEncoderModel,
+)
 from main.data import (
     load_embedding_datasets,
     load_image_dataset,
@@ -93,8 +97,15 @@ class FusionModel(torch.nn.Module):
         encoder_hidden_states: torch.Tensor,
         added_cond_kwargs,
         image_embeds: dict[str, torch.Tensor],
+        drop_mask: torch.Tensor = None,
     ):
-        image_embeds = self.fusion_encoder(image_embeds)
+        image_embeds = self.fusion_encoder(image_embeds)  # [B, D]
+        if drop_mask is not None:
+            drop_mask = drop_mask.unsqueeze(dim=-1).to(
+                image_embeds.device, image_embeds.dtype
+            )  # [B, 1]
+            image_embeds = image_embeds * (1.0 - drop_mask)
+
         ip_hidden_states = self.proj(image_embeds)
 
         # Predict the noise residual
@@ -385,7 +396,7 @@ def main():
         model_keys=list(OmegaConf.to_container(args.proj_meta).keys()),
         cache_dir=args.cache_dir,
     )
-    
+
     train_dataset = build_emb_with_image_dataset(
         image_ds=image_ds, emb_dss=emb_dss, preprocess=train_transform
     )
@@ -396,26 +407,33 @@ def main():
 
         # SDXL add_time_ids (micro-conditioning)
         heights = [int(ex["height"]) for ex in examples]
-        widths  = [int(ex["width"]) for ex in examples]
+        widths = [int(ex["width"]) for ex in examples]
 
         add_time_ids = []
         for h, w in zip(heights, widths):
-            crop_top  = max(0, int(round((h - args.resolution) / 2.0)))
+            crop_top = max(0, int(round((h - args.resolution) / 2.0)))
             crop_left = max(0, int(round((w - args.resolution) / 2.0)))
             add_time_ids.append(
-                torch.tensor([h, w, crop_top, crop_left, args.resolution, args.resolution], dtype=torch.long)
+                torch.tensor(
+                    [h, w, crop_top, crop_left, args.resolution, args.resolution],
+                    dtype=torch.long,
+                )
             )
         add_time_ids = torch.stack(add_time_ids, dim=0).contiguous()  # [B,6]
 
         # multi-emb
         emb_cols = [k for k in examples[0].keys() if k.startswith("emb_")]
         if not emb_cols:
-            raise KeyError(f"No embedding columns found with prefix '{"emb_"}' in dataset examples.")
+            raise KeyError(
+                f"No embedding columns found with prefix '{"emb_"}' in dataset examples."
+            )
 
         embs = {}
         for col in emb_cols:
-            name = col[len("emb_"):]
-            embs[name] = torch.stack([ex[col] for ex in examples], dim=0).contiguous()  # [B,D]
+            name = col[len("emb_") :]
+            embs[name] = torch.stack(
+                [ex[col] for ex in examples], dim=0
+            ).contiguous()  # [B,D]
 
         image_ids = [ex["image_id"] for ex in examples]
 
@@ -425,7 +443,6 @@ def main():
             "embs": embs,
             "image_ids": image_ids,
         }
-
 
     train_dataloader = torch.utils.data.DataLoader(
         train_dataset,
@@ -660,6 +677,12 @@ def main():
                 for key, tensor in image_embeds.items():
                     image_embeds[key] = tensor.to(accelerator.device, weight_dtype)
 
+                if args.drop_prob is not None and args.drop_prob > 0.0:
+                    drop_mask = (
+                        torch.rand(bsz, device=accelerator.device) < args.drop_prob
+                    )
+                else:
+                    drop_mask = None
                 # Predict the noise residual and compute loss
 
                 model_pred = fusion_model(
@@ -675,6 +698,7 @@ def main():
                         "time_ids": add_time_ids,
                     },
                     image_embeds=image_embeds,
+                    drop_mask=drop_mask,
                 )
 
                 if noise_scheduler.config.prediction_type == "epsilon":

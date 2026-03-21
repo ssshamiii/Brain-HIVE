@@ -26,6 +26,7 @@ eval_split: test
 resolution: 512
 
 # Training
+drop_prob: 0.1
 learning_rate: 1e-4
 adam_weight_decay: 0.01
 adam_beta1: 0.9
