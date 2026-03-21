@@ -5,10 +5,13 @@ BrainHIVE is a brain–vision decoding project for brain-to-image retrieval and 
 We align EEG/MEG embeddings to a single fused visual token built from multiple pretrained visual encoders that cover both high-level semantics (e.g., CLIP) and low-level visual details (e.g., VAE latents). Alignment is trained with a simple contrastive objective.
 
 For reconstruction, we use a pretrained Fusion Prior that maps the fused token into a frozen diffusion backbone (text-free), making generation stable and reusable across different brain encoders under the same fusion-based training scheme.
-#  News
+# News
 
-The pre-cached visual embeddings are now available on Hugging Face:
-https://huggingface.co/datasets/fakekungfu/Brain-HIVE_Visual_Embeddings
+- Pre-cached visual embeddings are now available on Hugging Face:  
+  https://huggingface.co/datasets/fakekungfu/Brain-HIVE_Visual_Embeddings
+
+- The training pipeline has been rolled back to a previous version that incorporates random embedding dropout.  
+  This change is intended to better support classifier-free guidance in **SDXL-Base** and the corresponding **IP-Adapter**.
 
 # Get Started
 
