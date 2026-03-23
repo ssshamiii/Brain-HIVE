@@ -298,5 +298,8 @@ class BrainEncoder(nn.Module):
         else:
             raise ValueError(f"Invalid brain backbone: {backbone}")
 
-    def forward(self, brain_signals: torch.Tensor):
-        return self.backbone(brain_signals)
+    def forward(self, brain_signals: torch.Tensor, subject_ids: torch.Tensor):
+        additional_kwargs = {}
+        if isinstance(self.backbone, ATM):
+            additional_kwargs = {"subject_ids": subject_ids}
+        return self.backbone(brain_signals, **additional_kwargs)
