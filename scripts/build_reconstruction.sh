@@ -44,6 +44,7 @@ for subj in "${SUBJECT_IDS[@]}"; do
     "output_dir=${output_dir}" \
     "avg_trials=${AVG_TRIALS}" \
     "seed=${seed}" \
+    "do_eval=false" \
     "selected_channels=${SELECTED_CHANNELS}" \
     "proj_meta=${PROJ_META}" \
     "time_slice=${TIME_SLICE}" \
