@@ -12,7 +12,7 @@ SUBJECT_IDS=(1 2 3 4 5 6 7 8 9 10)
 BRAIN_KEY="eeg"
 AVG_TRIALS="true"
 
-SELECTED_CHANNELS='["P7","P5","P3","P1","Pz","P2","P4","P6","P8","PO7","PO3","Oz","PO4","PO8","O1","Oz","O2"]'
+SELECTED_CHANNELS="['P7', 'P5', 'P3', 'P1','Pz', 'P2', 'P4', 'P6', 'P8', 'PO7', 'PO3', 'POz', 'PO4', 'PO8','O1', 'Oz', 'O2']"
 PROJ_META='{"synclr_vit_b_16":768,"CLIP-ViT-B-32-laion2B-s34B-b79K":512,"vae":1024}'
 TIME_SLICE='[0,250]'
 
