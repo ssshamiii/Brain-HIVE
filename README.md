@@ -58,7 +58,7 @@ Data sources:
   - ImageNet: [imagenet-1k-vl-enriched](https://huggingface.co/datasets/visual-layer/imagenet-1k-vl-enriched)
 ### Pretrained diffusion (SDXL) + IP-Adapter weights
 
-Fusion Prior training(SDXL-base) and Inference(SDXL-turbo for fast sampling) require:
+Fusion Prior training(SDXL-base) and inference(SDXL-turbo for fast sampling) require:
 
 - **SDXL base** (HuggingFace ID or local directory): `stabilityai/stable-diffusion-xl-base-1.0`
 - **SDXL turbo** (HuggingFace ID or local directory): `stabilityai/sdxl-turbo`
