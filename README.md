@@ -58,9 +58,10 @@ Data sources:
   - ImageNet: [imagenet-1k-vl-enriched](https://huggingface.co/datasets/visual-layer/imagenet-1k-vl-enriched)
 ### Pretrained diffusion (SDXL) + IP-Adapter weights
 
-Fusion Prior training requires:
+Fusion Prior training(SDXL-base) and Inference(SDXL-turbo for fast sampling) require:
 
 - **SDXL base** (HuggingFace ID or local directory): `stabilityai/stable-diffusion-xl-base-1.0`
+- **SDXL turbo** (HuggingFace ID or local directory): `stabilityai/sdxl-turbo`
 - **SDXL IP-Adapter weights**: a single `*.safetensors` file: `h94/IP-Adapter/sdxl_models/ip-adapter_sdxl_vit-h.safetensors`  (path is set in `scripts/train_prior.sh`)
 
 We recommend storing them under:
