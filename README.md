@@ -7,11 +7,13 @@ We align EEG/MEG embeddings to a single fused visual token built from multiple p
 For reconstruction, we use a pretrained Fusion Prior that maps the fused token into a frozen diffusion backbone (text-free), making generation stable and reusable across different brain encoders under the same fusion-based training scheme.
 # News
 
-- Pre-cached visual embeddings are now available on Hugging Face:  
+- Pre-cached visual embeddings for both the THINGS-EEG2 and THINGS-MEG datasets are now available on Hugging Face:  
   https://huggingface.co/datasets/fakekungfu/Brain-HIVE_Visual_Embeddings
 
-- The training pipeline has been rolled back to a previous version that incorporates random embedding dropout.  
+- The training pipeline has been rolled back to a previous version that includes random embedding dropout.  
   This change is intended to better support classifier-free guidance in **SDXL-Base** and the corresponding **IP-Adapter**.
+
+- We recommend using the **SynCLR** combination for better performance, achieving scores even higher than those reported in the paper.
 
 # Get Started
 

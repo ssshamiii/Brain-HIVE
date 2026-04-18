@@ -66,7 +66,7 @@ done
 # -----------------------------
 # Aggregate retrieval metrics (INTER)
 # -----------------------------
-EXP_ROOT="${BASE_DIR}/exp-${BRAIN_KEY}/RN50+CLIP-ViT-B-32-laion2B-s34B-b79K+vae/inter"
+EXP_ROOT="${BASE_DIR}/exp-${BRAIN_KEY}/synclr_vit_b_16+CLIP-ViT-B-32-laion2B-s34B-b79K+vae/inter"
 SUMMARY_JSON="${EXP_ROOT}/retrieval_summary_inter.json"
 SUMMARY_CSV="${EXP_ROOT}/retrieval_summary_inter.csv"
 
